@@ -35,6 +35,18 @@
         for(let i = 0 ; i< students.length ; i++){
             console.log(i+1  + ": Student " + ": " + students[i]);//here math done
         }
+
+        console.log("--------------------------------");
+
+        //many data type , and no need to give it a size because its dynamic
+        let newArray = ["userName"  , 12 , "lastName" , true , false , 13.56];
+        console.log(newArray[1]);
+        console.log(newArray[3]);
+        newArray.pop();// delete last element
+        newArray.push("Mohammad");// add at the end
+        console.log(newArray);
+        newArray.shift();// removes from the beginning
+        newArray.unshift("Added")// adds at the beginning
     </script>
 </body>
 </html>
