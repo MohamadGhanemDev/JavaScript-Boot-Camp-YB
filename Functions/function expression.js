@@ -3,6 +3,7 @@
             let z = x+20;
             return z;
 
+            //or
             //return x+10;
         }
         console.log(addTwenty(5));
