@@ -4,8 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM</title>
+    <!-- DOCUMENT OBJECT MODEL Manipulate "Change" -->
 </head>
-<body>
-    
+<body id="body">
+    <div id="container">
+        <h1 id="pageTitle">Hello World</h1>
+        <input type="text" name="" id="inp1" placeholder="Enter text to change title">
+        <button onclick="changeTitleFromInput()" class="btn-color">Change Title</button>
+
+        <br><br>
+
+        <button onclick="changeToRed()" class="btn-color">Red</button>
+        <button onclick="changeToGreen()" class="btn-color">Green</button>
+        <button onclick="changeToBlue()" class="btn-color">Blue</button>
+        <p id="pageParagrph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius vitae, provident architecto iure nulla est dolores praesentium, doloremque veniam itaque mollitia quam ipsam quae eum modi iusto perferendis maxime vel!</p>
+
+        <ul id="list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+    </div>
+    <button onclick="changeTitle()" id="button1" class="btn-color">Change</button> <!--here inside the onclick we can put js code one line or multiple line via separating them by ; but the better way is to call a function inside this onclick and create the function in the js file-->
+    <button onclick="hideAll()" class="btn-color">Hide Everything</button>
+    <button onclick="showAll()" class="btn-color">Show Again</button>
+    <button onclick="toggle()" id="toggle" class="btn-color">Toggle</button>
+
+    <button onclick="switchDarkLightMode() ; changeBtnColor()" id="modeBtn" class="btn-color">Dark Mode</button>
+
+
+    <script src="dom-manipulation.js"></script>
 </body>
 </html>
