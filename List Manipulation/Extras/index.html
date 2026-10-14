@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <ul id="list">
         <li>Html</li>
@@ -12,6 +14,32 @@
         <li>JavaScript</li>
         <li>PHP</li>
     </ul>
-    <script src=""></script>
+    <p id="error"></p>
+
+        <button onclick="readLi()">Read</button>
+        <button onclick="readTextInsideLi()">Read text inside li's</button>
+    <br><br>
+    <input type="text" id="input1" placeholder="Enter Value to Insert Last">
+        <button onclick="insertLast()">Insert Last</button>
+    <br><br>
+        <button onclick="deleteAll()">Delete All</button>
+    <br><br>
+    <input type="number" name="" id="input2">
+        <button onclick="deleteByIndex()">Delete By Index</button>
+    <br><br>
+    <input type="number" name="" id="input3" placeholder="Select Index">
+    <input type="text" name="" id="input4" placeholder="Enter the Value">
+    <button onclick="insertAtIndex()">Insert At Index</button>
+    <br><br>
+    <input type="number" name="" id="input5" placeholder="Enter Index to Edit">
+    <input type="text" name="" id="input6" placeholder="Edit Value By Index">
+    <button onclick="editByIndex()">Edit</button>
+    <br><br>
+    <input type="text" name="" id="input7" placeholder="Enter Content Delete">
+    <button onclick="deleteContent()">Delete Content</button>
+
+
+
+    <script src="script.js"></script>
 </body>
 </html>
