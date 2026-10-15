@@ -1,0 +1,110 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #calculator {
+            display: grid;
+            grid-template-columns: repeat(4, 90px);
+            grid-template-rows: repeat(6, 75px);
+        }
+        .btn {
+            border: 1px solid black;
+            background-color: gray;
+            font-size: 30px;
+            display: grid;
+            justify-content: center;
+            align-content: center;
+        }
+        .btn:hover {
+            background-color: rgb(156, 156, 156);
+        }
+        #screen {
+            grid-column: 1 / span 4;
+            background-color: black;
+            border: none;
+            color: aliceblue;
+            font-size: 50px;
+        }
+        .two-col {
+            grid-column: 1 / span 2;
+        }
+        .orange {
+            background-color: rgb(200, 130, 0);
+        }
+        .orange:hover {
+            background-color: rgb(230, 149, 0);
+        }
+    </style>
+</head>
+<body>
+    <main id="calculator">
+        <input type="text" id="screen" value="0" />
+        <div class="btn two-col orange" onclick="clearScreen()">C</div>
+        <div class="btn orange" onclick="backSpace()">&larr;</div>
+        <div class="btn orange" onclick="getNumber('/')">&divide;</div>
+        <div class="btn" onclick="getNumber(7)">7</div>
+        <div class="btn" onclick="getNumber(8)">8</div>
+        <div class="btn" onclick="getNumber(9)">9</div>
+        <div class="btn orange"onclick="getNumber('*')">x</div>
+        <div class="btn" onclick="getNumber(4)">4</div>
+        <div class="btn" onclick="getNumber(5)">5</div>
+        <div class="btn" onclick="getNumber(6)">6</div>
+        <div class="btn orange" onclick="getNumber('-')">-</div>
+        <div class="btn" onclick="getNumber(1)">1</div>
+        <div class="btn" onclick="getNumber(2)">2</div>
+        <div class="btn" onclick="getNumber(3)">3</div>
+        <div class="btn orange" onclick="getNumber('+')">+</div>
+        <div class="btn two-col" onclick="getNumber(0)">0</div>
+        <div class="btn">.</div>
+        <div class="btn orange" onclick="getAnswer()">=</div>
+    </main>
+
+
+    <script>
+        const screen = document.getElementById("screen");
+
+        // function addZero(){
+        //     // screen.value = '0'; //removes old zero and put new zero
+        //     // screen.value += '0';
+        //     screen.value = screen.value + '0';
+        // }
+        function getNumber(num){
+            if(isOperator(num) && isOperator(screen.value[screen.value.length-1])){//screen.value[screen.value.length-1] its like let name = Mohammad ; name.length = 8 but the index is 7 , if i put name[8] error 
+                return;
+            }
+            screen.value += num;
+        }
+
+
+        function clearScreen(){
+            screen.value = "";
+        }
+
+        function backSpace(){
+            screen.value = screen.value.slice(0,-1);
+        }
+
+        function getAnswer(){
+            if(isOperator(screen.value[screen.value.length-1])){
+                return;
+            }
+            screen.value = eval(screen.value);// eval in like this exercises no problem in it but in advance project it has security issues
+        }
+
+        function isOperator(c){//first way
+            if(c == '+' || c == '-' || c == '*' || c == '/'){ 
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        // function isOperator(c){
+        //     return (c == '+' || c == '-' || c == '*' || c == '/'); 
+        // }
+
+    </script>
+</body>
+</html>
