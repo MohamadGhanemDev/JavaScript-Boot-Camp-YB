@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: #f2f2f2;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+        main{
+            display: flex;
+            justify-content: center;
+        }
+        section{
+            width: 600px;
+            background-color: white;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        input , select , button{
+            padding: 10px;
+            margin: 5px;
+        }
+        .task{
+            background-color: #eee;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .delete{
+            background-color: red;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="container">
+            <h1>Task Manager</h1>
+            <input type="text" name="" id="taskName" placeholder="Task Name">
+            <select name="" id="selectPriority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <input type="date" id="taskDate">
+            <button onclick="addTask()">Add</button>
+        </section>
+
+        <script>
+            const container = document.getElementById("container");
+            function addTask(){
+                const taskName = document.getElementById("taskName");
+                const selectPriority = document.getElementById("selectPriority");
+                const taskDate = document.getElementById("taskDate");
+
+                
+                    const taskNameParagraph = document.createElement("p");
+                        taskNameParagraph.textContent = `Task Name: ${taskName.value}`;
+                        taskNameParagraph.style.fontWeight = "bold";
+                    const priorityParagraph = document.createElement("p");
+                        priorityParagraph.textContent = `Priority: ${selectPriority.value}`;
+                    const dateParagraph = document.createElement("p");
+                        dateParagraph.textContent = `Date: ${taskDate.value}`;
+                    const deleteButton = document.createElement("button");
+                        deleteButton.classList.add("delete");
+                        deleteButton.textContent = "Delete";
+
+            const newDivTask = document.createElement("div");
+                newDivTask.classList.add('task');
+                newDivTask.appendChild(taskNameParagraph);
+                newDivTask.appendChild (priorityParagraph);
+                newDivTask.appendChild (dateParagraph);
+                newDivTask.appendChild (deleteButton);
+
+            container.appendChild(newDivTask);
+            }
+        </script>
+    </main>
+</body>
+</html>
