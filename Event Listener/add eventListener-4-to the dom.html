@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- <button id="testBtn" onclick="sayHi()">Test</button> --> <!--on this way we need to edit on html this is the first way by onclick-->
+    <button id="testBtn">Test</button> <!--This way by event listener after click go to inspect element we notice beside the element there is an event-->
+    <br><br>
+    <div id="container"></div>
+    <br><br>
+    <input type="text" id="input1">
+    <p id="text"></p>
+
+    <script>
+        const testBtn = document.getElementById("testBtn");
+        testBtn.addEventListener("click",function (){
+            alert('Hi');
+        });
+
+        const container = document.getElementById("container");
+        container.addEventListener("click",function (){
+            console.log("container Clicked!");
+        });
+
+        container.addEventListener("mouseover",function (){
+            console.log("Mouse Over");
+            container.style.backgroundColor = 'red';// this is not hover be careful
+        });
+        container.addEventListener("mouseout",function (){
+            console.log("Mouse Out");
+            container.style.backgroundColor = 'yellow';
+            // alert("Mouse Out");
+        });
+
+        document.addEventListener("keydown", ()=>{
+            console.log("Key Down");
+        });
+        document.addEventListener("keyup", ()=>{
+            console.log("Key Up");
+        });
+    </script>
+</body>
+</html>
