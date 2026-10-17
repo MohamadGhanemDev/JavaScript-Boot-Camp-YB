@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+        }
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+
+        .shadow{
+            box-shadow: 10px 5px 5px grey;
+        }
+
+        .animate{
+            position: relative;
+            animation: moveLeftToRight 3s linear infinite;
+        }
+
+        @keyframes moveLeftToRight{
+            from{
+                transform: translateX(0);
+            }
+            to{
+                transform: translateX(200px);
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div id="container" class="blue"></div>
+    <button onclick="doSomething()">Do SomeThing</button>
+
+    <script>
+        let container = document.getElementById("container");
+
+        function doSomething(){
+            // container.classList.add("blue");// nothing done because its already have the class
+
+            // container.classList.add("red");//conflict and it takes the blue because its defined last in css
+
+            // container.classList.remove("blue");
+            // container.classList.add("red");
+
+            // container.classList.replace("blue","red");
+
+
+
+            // if(container.classList.contains("shadow")){
+            //     container.classList.remove("shadow");
+            // }
+            // else{
+            //     container.classList.add("shadow");
+            // }
+            // console.log(container.classList.contains("shadow"));//false
+
+
+            //simple way like the above for adding or removing class
+            container.classList.toggle("shadow");
+            container.classList.toggle("animate");
+
+            //last not according to add remove class
+            container.classList.remove("red"); //do nothing no error and no need to check by contains to remove it
+        }
+
+    </script>
+</body>
+</html>
