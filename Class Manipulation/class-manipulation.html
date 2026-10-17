@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+        }
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+
+        .shadow{
+            box-shadow: 10px 5px 5px grey;
+        }
+
+        .animate{
+            position: relative;
+            animation: moveLeftToRight 3s linear infinite;
+        }
+
+        @keyframes moveLeftToRight{
+            from{
+                transform: translateX(0);
+            }
+            to{
+                transform: translateX(200px);
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div id="container" class="blue"></div>
+    <button onclick="doSomething()">Do SomeThing</button>
+
+    <script>
+        let container = document.getElementById("container");
+
+        //we can directly change or add styles from js container.style.  ... but the the preferred way that we make class in css and add it if we want by js
+
+        function doSomething(){
+            // console.log(container.classList); //this shows classes that the element has
+
+
+            // container.style.boxShadow = "10px 5px 5px grey"; // adding styles via js
+            // container.classList.add("shadow");
+
+            // container.classList.add("shadow", "animate");//before click on the button go to inspect elements and see classes that the container have before click and after click and we notice that the classes added without refreshing the page
+
+
+            console.log(container.classList);
+        }
+    </script>
+</body>
+</html>
