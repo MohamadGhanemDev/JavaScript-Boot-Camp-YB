@@ -1,0 +1,33 @@
+
+        .coloredDiv{
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+            border: 1px solid;
+        }
+        #div1{
+            background-color: red;
+        }
+        #div2{
+            background-color: green;
+        }
+        #div3{
+            background-color: blue;
+        }
+        #div4{
+            background-color: yellow;
+        }
+        #div5{
+            background-color: black;
+        }
+        #div6{
+            background-color: aqua;
+        }
+
+        .containerDiv{
+            height: 100px;
+            width: 200px ;
+            display: inline-block;
+            border: 1px solid black;
+        }
