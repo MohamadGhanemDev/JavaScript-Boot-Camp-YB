@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <style>
+
+        .coloredDiv{
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+            border: 1px solid;
+        }
+        #div1{
+            background-color: red;
+        }
+        #div2{
+            background-color: green;
+        }
+        #div3{
+            background-color: blue;
+        }
+        #div4{
+            background-color: yellow;
+        }
+        #div5{
+            background-color: black;
+        }
+        #div6{
+            background-color: aqua;
+        }
+
+        .containerDiv{
+            height: 100px;
+            width: 200px ;
+            display: inline-block;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="coloredDiv" draggable="true"></div>
+    <div id="div2" class="coloredDiv" draggable="true"></div>
+    <div id="div3" class="coloredDiv" draggable="true"></div>
+    <div id="div4" class="coloredDiv" draggable="true"></div>
+    <div id="div5" class="coloredDiv" draggable="true"></div>
+    <div id="div6" class="coloredDiv" draggable="true"></div>
+    <br>
+    <div id="div7" class="containerDiv"></div>
+    <div id="div8" class="containerDiv"></div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded" , function(){
+            //first we catch the divs
+            const coloredDivs = document.getElementsByClassName("coloredDiv");//html collection
+            const containerDivs = document.getElementsByClassName("containerDiv");//html collection
+
+            //catch all divs that have class colorDiv and give it EventListener dragstart
+            for(let i=0 ; i<coloredDivs.length ; i++){
+                coloredDivs[i].addEventListener("dragstart" , dragStart)
+            }
+
+            // function dragStart(){
+            //     console.log("Dragging Start");
+            // }
+
+            function dragStart(ev){
+                // console.log(ev);//obj => type dragstart => srcElement and target
+                // console.log(ev.srcElement);// here we select the element and we know which element make the eventListener turn on
+                
+                // the desired here to know the color the element 
+                // console.log(ev.srcElement.style.backgroundColor); // this will return empty string why? because this access the inline style "style attribute" which is empty , but it works and it will return the back ground color if we make it as inline style
+
+                let currentColor = getColorFromElement(ev.srcElement);
+            }
+
+            function getColorFromElement(el){
+                let style = window.getComputedStyle(el);
+                // console.log(style);// this will return list of css properties we find what we need which is back ground Color
+                return style.backgroundColor;
+            }
+
+        });
+    </script>
+</body>
+</html>
