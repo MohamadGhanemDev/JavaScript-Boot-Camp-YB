@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        .animate{
+            animation: slide 2s forwards ;
+        }
+
+        #cont{
+            margin-top: 2000px;
+            background-color: blue;
+        }
+
+        @keyframes slide{
+            from{
+                left: -100px;
+            }
+            to{
+                left: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cont"></div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded" , function(){
+
+            const observerOptions = {
+                root: null,
+                threshold: 1,
+                rootMargin: "0px"
+            }
+            let observer = new IntersectionObserver(function(elements){//even if i have one element , we must use elements the name is not important but the information is observer always works on list , observe more more than element even if its one element observed it returned via list included 1 object
+                elements.forEach(function(element){
+                    if(element.isIntersecting){
+                        element.target.classList.add("animate");
+                    }
+                });
+            } , observerOptions);
+            observer.observe(document.getElementById("cont"));
+        });
+    </script>
+</body>
+</html>
