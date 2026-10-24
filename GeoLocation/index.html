@@ -26,7 +26,18 @@
         }// when i run the code the browser make a pop up notification to ask if the user want to allow the location or not but i cant change anything in this notification the sentence , its place , buttons , those browser responsible about it
 
         function getLocation(position){// take some time 
-            console.log(position);// 6:40
+            // console.log(position);// then it return the location this location inside it coordinates latitude and longitude , time stamp (the time that we take the location this time in seconds from 1970 till today "Unix Timestamp 1/1/1970") , we the coords obj latitude and longitude 5tut l toul wel 3ard this coords if we put them on google map or some apps it gives me the location or accuracy this measured in meters
+            // console.log("longitude: " + position.coords.longitude);
+            // console.log("latitude: " + position.coords.latitude);
+
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+
+            fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
+            .then(response => response.json())
+            .then(location => {
+                console.log(location);
+            });
         }
 
         function errorLocation(error){// if we block the popup or there is error
